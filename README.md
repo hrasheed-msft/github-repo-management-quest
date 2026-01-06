@@ -18,7 +18,19 @@ By completing this quest, you will:
 
 ## Quest Structure
 
-This quest contains three progressive scenarios, each building on skills from the previous one:
+This quest contains a foundational module and four progressive scenarios, each building on skills from the previous one:
+
+### Module 0: Workspace Preparation
+**Duration:** 15-20 minutes
+**Difficulty:** Beginner to Intermediate
+
+Before diving into repository management scenarios, learn how to customize your GitHub Copilot workspace with agents and reusable prompts. This foundational module introduces you to `.agents` and `.prompts` files that will supercharge your productivity throughout the quest.
+
+**Tasks:**
+- 0.1: Introduction to agents and prompts with examples
+- 0.2: Creating your first custom agent
+- 0.3: Building a comprehensive prompt library
+- 0.4: Testing and optimizing your workspace configuration
 
 ### Scenario 1: The Inheritance
 **Duration:** 30-45 minutes
@@ -31,6 +43,7 @@ You've just been assigned to take over a documentation repository from a team me
 - 1.2: Identify outdated content, broken links, and inconsistencies with Copilot Chat
 - 1.3: Generate a comprehensive content audit report using Copilot
 - 1.4: Create documentation standards with Copilot's assistance
+- 1.5: Advanced content analysis using custom agents and prompt templates
 
 ### Scenario 2: The Big Merge
 **Duration:** 45-60 minutes
@@ -55,6 +68,21 @@ Your documentation repository has accumulated 25+ open issues over the past few 
 - 3.2: Leverage Copilot to identify duplicates and relationships between issues
 - 3.3: Generate issue templates with Copilot's assistance
 - 3.4: Use Copilot to draft responses and even create fix PRs directly from issues
+- 3.5: Advanced issue triage using specialized agents
+- 3.6: Automated duplicate detection with AI workflows
+- 3.7: Intelligent template creation for consistent communications
+
+### Scenario 4: The Agent Arsenal
+**Duration:** 45-60 minutes
+**Difficulty:** Advanced
+
+You've mastered the basics of repository management with GitHub Copilot. Now it's time to build an advanced agent ecosystem that can handle complex, multi-step workflows automatically. Your challenge: create a suite of specialized agents that work together to manage an entire documentation project lifecycle.
+
+**Tasks:**
+- 4.1: Advanced agent design for enterprise-scale workflows
+- 4.2: Agent workflow orchestration and coordination
+- 4.3: Performance optimization for large-scale operations
+- 4.4: Quality assurance automation with meta-agents
 
 ## Prerequisites
 
@@ -85,22 +113,92 @@ This quest uses a **conceptual and interactive lab** format:
 1. **Install VS Code** - Download from https://code.visualstudio.com/
 2. **Install GitHub Copilot extension** - From VS Code marketplace
 3. **Activate GitHub Copilot** - Sign in with your GitHub account
-4. **Clone this repository**:
+4. **GitHub account** - Required for forking and running workflows
+
+### Repository Setup
+
+1. **Fork this repository** to your own GitHub account:
+   - Click the "Fork" button at the top-right of this repository
+   - Choose your account as the destination for the fork
+
+2. **Clone your fork** (replace `[your-username]` with your GitHub username):
    ```bash
-   git clone https://github.com/hrasheed-msft/github-repo-management-quest.git
+   git clone https://github.com/[your-username]/github-repo-management-quest.git
    cd github-repo-management-quest
    code .
    ```
 
+3. **Create sample content** by running the setup workflows:
+
+   **Option A: Using GitHub Web Interface (Recommended)**
+   - Go to your forked repository on GitHub
+   - Navigate to the **Actions** tab
+   - You'll see two workflows: "Setup Quest Issues" and "Setup Quest PR"
+   
+   **To create sample issues for Scenario 3:**
+   - Click on "Setup Quest Issues" workflow
+   - Click "Run workflow" button
+   - Select "scenario-3" from the dropdown
+   - Click the green "Run workflow" button
+   - Wait for the workflow to complete (creates 8 sample issues)
+
+   **To create sample PR for Scenario 2:**
+   - Click on "Setup Quest PR" workflow  
+   - Click "Run workflow" button
+   - Select your preferred PR size (small/medium/large)
+   - Click the green "Run workflow" button
+   - Wait for the workflow to complete (creates 1 sample pull request)
+
+   **Option B: Using GitHub CLI (if you have it installed)**
+   ```bash
+   # Create sample issues
+   gh workflow run setup-quest-issues.yml --field scenario=scenario-3
+
+   # Create sample PR
+   gh workflow run setup-quest-pr.yml --field pr_size=medium
+   ```
+
+4. **Verify setup**:
+   - Check the **Issues** tab - you should see 8 sample issues labeled "quest-sample"
+   - Check the **Pull requests** tab - you should see 1 sample PR labeled "quest-sample"
+
 ### Quest Workflow
 
-1. **Open VS Code** with this repository
+1. **Open VS Code** with your forked repository
 2. **Start with Scenario 1** in the `scenario-1-inheritance/` directory
 3. **Open Copilot Chat** (Ctrl+Shift+I or Cmd+Shift+I)
 4. **Follow task instructions** - use provided Copilot prompts
 5. **Complete each task** using GitHub Copilot features
-6. **Check solution guides** to see expected approaches
-7. **Progress through scenarios** at your own pace
+6. **Use your sample issues and PR** created by the workflows for Scenarios 2 & 3
+7. **Check solution guides** to see expected approaches
+8. **Progress through scenarios** at your own pace
+
+### Important Notes
+
+- **Scenario 1** uses the files in `scenario-1-inheritance/challenge-repo/` - no setup needed
+- **Scenario 2** requires the sample PR created by running "Setup Quest PR" workflow
+- **Scenario 3** requires the sample issues created by running "Setup Quest Issues" workflow
+- All sample content is labeled with "quest-sample" for easy identification
+- You can re-run the workflows anytime to create fresh sample content
+
+### Troubleshooting
+
+**Workflows not visible in Actions tab?**
+- Make sure you're looking at your forked repository, not the original
+- GitHub Actions should be enabled by default on forks
+
+**Workflow run failed?**
+- Check that your repository is public (required for GitHub Actions on free accounts)
+- Ensure you have the latest version by syncing your fork with the original repository
+
+**No sample issues or PRs created?**
+- Check the Actions tab for workflow run details and any error messages
+- Verify the workflows completed successfully (green checkmark)
+- Issues appear in the "Issues" tab, PRs appear in "Pull requests" tab
+
+**Need to start over?**
+- You can delete the sample issues and PR, then re-run the workflows
+- Or fork the repository again for a completely fresh start
 
 ## Repository Structure
 
