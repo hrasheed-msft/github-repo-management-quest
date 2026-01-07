@@ -268,3 +268,8 @@ Ready to begin? Head to [Scenario 1: The Inheritance](scenario-1-inheritance/REA
 **Last Updated:** 2025-12-01
 **Estimated Completion Time:** 2-3 hours
 **Difficulty Level:** Beginner to Advanced
+
+## Recent Updates
+
+- Added advanced integration tutorial
+- Updated API documentation
